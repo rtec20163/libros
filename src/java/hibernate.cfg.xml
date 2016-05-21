@@ -5,7 +5,7 @@
     <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
     <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/prueba</property>
-    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.username">rtec</property>
     <property name="hibernate.connection.password">12345</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
