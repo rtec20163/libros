@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-may-2016 15:46:10 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Libro" table="libro" schema="public" optimistic-lock="version">
+        <id name="idLibro" type="int">
+            <column name="id_libro" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="usuario" class="model.Usuario" fetch="select">
+            <column name="id_usuario" />
+        </many-to-one>
+        <property name="LTitulo" type="string">
+            <column name="l_titulo" length="32" />
+        </property>
+        <property name="LAutor" type="string">
+            <column name="l_autor" length="32" />
+        </property>
+        <property name="LEditorial" type="string">
+            <column name="l_editorial" length="32" />
+        </property>
+        <property name="LIsbn" type="string">
+            <column name="l_isbn" length="32" />
+        </property>
+        <property name="LAnho" type="string">
+            <column name="l_anho" length="32" />
+        </property>
+        <property name="LEdicion" type="string">
+            <column name="l_edicion" length="32" />
+        </property>
+        <property name="LEvalucionContenido" type="string">
+            <column name="l_evalucion_contenido" length="32" />
+        </property>
+        <property name="LEvaluacionRedaccion" type="string">
+            <column name="l_evaluacion_redaccion" length="32" />
+        </property>
+        <property name="LResehna" type="string">
+            <column name="l_resehna" length="32" />
+        </property>
+        <property name="LPablasClave" type="string">
+            <column name="l_pablas_clave" length="32" />
+        </property>
+        <property name="LFoto" type="string">
+            <column name="l_foto" length="32" />
+        </property>
+        <property name="LMapaUbicacion" type="string">
+            <column name="l_mapa_ubicacion" length="32" />
+        </property>
+        <property name="LOferta" type="java.lang.Boolean">
+            <column name="l_oferta" />
+        </property>
+        <set name="prestamos" table="prestamo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_libro" />
+            </key>
+            <one-to-many class="model.Prestamo" />
+        </set>
+        <set name="intercambios" table="intercambio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_libro" />
+            </key>
+            <one-to-many class="model.Intercambio" />
+        </set>
+    </class>
+</hibernate-mapping>

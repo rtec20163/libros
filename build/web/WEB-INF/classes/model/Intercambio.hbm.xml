@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17-may-2016 15:46:10 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Intercambio" table="intercambio" schema="public" optimistic-lock="version">
+        <id name="idIntercambio" type="int">
+            <column name="id_intercambio" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="libro" class="model.Libro" fetch="select">
+            <column name="id_libro" />
+        </many-to-one>
+        <many-to-one name="prestamo" class="model.Prestamo" fetch="select">
+            <column name="id_prestamo" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
