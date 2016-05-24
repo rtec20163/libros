@@ -1,5 +1,5 @@
-package model;
-// Generated 17-may-2016 15:46:09 by Hibernate Tools 4.3.1
+package modelo;
+// Generated 18/05/2016 02:01:03 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -18,9 +18,9 @@ public class Libro  implements java.io.Serializable {
      private String LEditorial;
      private String LIsbn;
      private String LAnho;
-     private String LEdicion;
-     private String LEvalucionContenido;
-     private String LEvaluacionRedaccion;
+     private Integer NEdicion;
+     private Integer LEvalucionContenido;
+     private Integer LEvaluacionRedaccion;
      private String LResehna;
      private String LPablasClave;
      private String LFoto;
@@ -36,7 +36,7 @@ public class Libro  implements java.io.Serializable {
     public Libro(int idLibro) {
         this.idLibro = idLibro;
     }
-    public Libro(int idLibro, Usuario usuario, String LTitulo, String LAutor, String LEditorial, String LIsbn, String LAnho, String LEdicion, String LEvalucionContenido, String LEvaluacionRedaccion, String LResehna, String LPablasClave, String LFoto, String LMapaUbicacion, Boolean LOferta, Set<Prestamo> prestamos, Set<Intercambio> intercambios) {
+    public Libro(int idLibro, Usuario usuario, String LTitulo, String LAutor, String LEditorial, String LIsbn, String LAnho, Integer NEdicion, Integer LEvalucionContenido, Integer LEvaluacionRedaccion, String LResehna, String LPablasClave, String LFoto, String LMapaUbicacion, Boolean LOferta, Set<Prestamo> prestamos, Set<Intercambio> intercambios) {
        this.idLibro = idLibro;
        this.usuario = usuario;
        this.LTitulo = LTitulo;
@@ -44,7 +44,7 @@ public class Libro  implements java.io.Serializable {
        this.LEditorial = LEditorial;
        this.LIsbn = LIsbn;
        this.LAnho = LAnho;
-       this.LEdicion = LEdicion;
+       this.NEdicion = NEdicion;
        this.LEvalucionContenido = LEvalucionContenido;
        this.LEvaluacionRedaccion = LEvaluacionRedaccion;
        this.LResehna = LResehna;
@@ -105,25 +105,25 @@ public class Libro  implements java.io.Serializable {
     public void setLAnho(String LAnho) {
         this.LAnho = LAnho;
     }
-    public String getLEdicion() {
-        return this.LEdicion;
+    public Integer getNEdicion() {
+        return this.NEdicion;
     }
     
-    public void setLEdicion(String LEdicion) {
-        this.LEdicion = LEdicion;
+    public void setNEdicion(Integer NEdicion) {
+        this.NEdicion = NEdicion;
     }
-    public String getLEvalucionContenido() {
+    public Integer getLEvalucionContenido() {
         return this.LEvalucionContenido;
     }
     
-    public void setLEvalucionContenido(String LEvalucionContenido) {
+    public void setLEvalucionContenido(Integer LEvalucionContenido) {
         this.LEvalucionContenido = LEvalucionContenido;
     }
-    public String getLEvaluacionRedaccion() {
+    public Integer getLEvaluacionRedaccion() {
         return this.LEvaluacionRedaccion;
     }
     
-    public void setLEvaluacionRedaccion(String LEvaluacionRedaccion) {
+    public void setLEvaluacionRedaccion(Integer LEvaluacionRedaccion) {
         this.LEvaluacionRedaccion = LEvaluacionRedaccion;
     }
     public String getLResehna() {

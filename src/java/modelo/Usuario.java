@@ -1,5 +1,5 @@
-package model;
-// Generated 17-may-2016 15:46:09 by Hibernate Tools 4.3.1
+package modelo;
+// Generated 18/05/2016 02:01:03 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -19,8 +19,9 @@ public class Usuario  implements java.io.Serializable {
      private String UCorreo;
      private Integer UCalificaficacion;
      private Integer UNumeroCalificacion;
-     private Set<Prestamo> prestamos = new HashSet<Prestamo>(0);
+     private Set<Prestamo> prestamosForIdUsuarioPrestador = new HashSet<Prestamo>(0);
      private Set<Libro> libros = new HashSet<Libro>(0);
+     private Set<Prestamo> prestamosForIdUsuarioSolicitante = new HashSet<Prestamo>(0);
 
     public Usuario() {
     }
@@ -29,7 +30,7 @@ public class Usuario  implements java.io.Serializable {
     public Usuario(int idUsuario) {
         this.idUsuario = idUsuario;
     }
-    public Usuario(int idUsuario, String UNombre, String UApellido, String UTelefono, String UContrasenha, String UCorreo, Integer UCalificaficacion, Integer UNumeroCalificacion, Set<Prestamo> prestamos, Set<Libro> libros) {
+    public Usuario(int idUsuario, String UNombre, String UApellido, String UTelefono, String UContrasenha, String UCorreo, Integer UCalificaficacion, Integer UNumeroCalificacion, Set<Prestamo> prestamosForIdUsuarioPrestador, Set<Libro> libros, Set<Prestamo> prestamosForIdUsuarioSolicitante) {
        this.idUsuario = idUsuario;
        this.UNombre = UNombre;
        this.UApellido = UApellido;
@@ -38,8 +39,9 @@ public class Usuario  implements java.io.Serializable {
        this.UCorreo = UCorreo;
        this.UCalificaficacion = UCalificaficacion;
        this.UNumeroCalificacion = UNumeroCalificacion;
-       this.prestamos = prestamos;
+       this.prestamosForIdUsuarioPrestador = prestamosForIdUsuarioPrestador;
        this.libros = libros;
+       this.prestamosForIdUsuarioSolicitante = prestamosForIdUsuarioSolicitante;
     }
    
     public int getIdUsuario() {
@@ -98,12 +100,12 @@ public class Usuario  implements java.io.Serializable {
     public void setUNumeroCalificacion(Integer UNumeroCalificacion) {
         this.UNumeroCalificacion = UNumeroCalificacion;
     }
-    public Set<Prestamo> getPrestamos() {
-        return this.prestamos;
+    public Set<Prestamo> getPrestamosForIdUsuarioPrestador() {
+        return this.prestamosForIdUsuarioPrestador;
     }
     
-    public void setPrestamos(Set<Prestamo> prestamos) {
-        this.prestamos = prestamos;
+    public void setPrestamosForIdUsuarioPrestador(Set<Prestamo> prestamosForIdUsuarioPrestador) {
+        this.prestamosForIdUsuarioPrestador = prestamosForIdUsuarioPrestador;
     }
     public Set<Libro> getLibros() {
         return this.libros;
@@ -111,6 +113,13 @@ public class Usuario  implements java.io.Serializable {
     
     public void setLibros(Set<Libro> libros) {
         this.libros = libros;
+    }
+    public Set<Prestamo> getPrestamosForIdUsuarioSolicitante() {
+        return this.prestamosForIdUsuarioSolicitante;
+    }
+    
+    public void setPrestamosForIdUsuarioSolicitante(Set<Prestamo> prestamosForIdUsuarioSolicitante) {
+        this.prestamosForIdUsuarioSolicitante = prestamosForIdUsuarioSolicitante;
     }
 
 

@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 17-may-2016 15:46:10 by Hibernate Tools 4.3.1 -->
+<!-- Generated 18/05/2016 02:01:04 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="model.Libro" table="libro" schema="public" optimistic-lock="version">
+    <class name="modelo.Libro" table="libro" schema="public" optimistic-lock="version">
         <id name="idLibro" type="int">
             <column name="id_libro" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
-        <many-to-one name="usuario" class="model.Usuario" fetch="select">
+        <many-to-one name="usuario" class="modelo.Usuario" fetch="select">
             <column name="id_usuario" />
         </many-to-one>
         <property name="LTitulo" type="string">
@@ -26,14 +26,14 @@
         <property name="LAnho" type="string">
             <column name="l_anho" length="32" />
         </property>
-        <property name="LEdicion" type="string">
-            <column name="l_edicion" length="32" />
+        <property name="NEdicion" type="java.lang.Integer">
+            <column name="n_edicion" />
         </property>
-        <property name="LEvalucionContenido" type="string">
-            <column name="l_evalucion_contenido" length="32" />
+        <property name="LEvalucionContenido" type="java.lang.Integer">
+            <column name="l_evalucion_contenido" />
         </property>
-        <property name="LEvaluacionRedaccion" type="string">
-            <column name="l_evaluacion_redaccion" length="32" />
+        <property name="LEvaluacionRedaccion" type="java.lang.Integer">
+            <column name="l_evaluacion_redaccion" />
         </property>
         <property name="LResehna" type="string">
             <column name="l_resehna" length="32" />
@@ -54,13 +54,13 @@
             <key>
                 <column name="id_libro" />
             </key>
-            <one-to-many class="model.Prestamo" />
+            <one-to-many class="modelo.Prestamo" />
         </set>
         <set name="intercambios" table="intercambio" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_libro" />
             </key>
-            <one-to-many class="model.Intercambio" />
+            <one-to-many class="modelo.Intercambio" />
         </set>
     </class>
 </hibernate-mapping>

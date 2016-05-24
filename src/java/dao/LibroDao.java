@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package bean;
+package dao;
 
 /**
  *
- * @author Rodrigo_Rivera
+ * @author luis
  */
-public class beanCorreo {
+public class LibroDao {
     
 }
