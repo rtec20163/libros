@@ -15,7 +15,7 @@ public class UsuarioDao {
     private DAO<Usuario> dao;
     
     public UsuarioDao() {
-        dao = new DAO("Usuario", "idusuario");
+        dao = new DAO("Usuario", "id_usuario");
     }
     
     public void insertar (Usuario obj){

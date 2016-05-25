@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:outputText value="#{beanLogout.usuario}" style="font-weight:bold; "/>
+        <br/>
+        <h:outputText value="#{beanLogout.id}" style="font-weight:bold;"/>
+        
+        <h:form style="position: relative;text-align: center">
+            <h1>publicar libro</h1>
+            <p:outputLabel value="titulo: "/>
+
+            <p:inputText value="#{beanLibro.LTitulo}"/>
+            <br/>
+            <p:outputLabel value="autor: "/>
+            <p:inputText value="#{beanLibro.LAutor}"/>
+            <br/>
+            <p:outputLabel value="editorial: "/>
+            <p:inputText value="#{beanLibro.LEditorial}"/>
+            <br/>
+            <p:outputLabel value="isbn: "/>
+            <p:inputText value="#{beanLibro.LIsbn}"/>
+            <br/>
+            <p:outputLabel value="año: "/>
+            <p:inputText value="#{beanLibro.LAnho}"/>
+            <br/>
+            <p:outputLabel value="edicion: "/>
+            <p:inputText value="#{beanLibro.NEdicion}"/>
+            <br/>
+            <p:outputLabel value="contenido: "/>
+            <p:inputText value="#{beanLibro.LEvalucionContenido}"/>
+            <br/>
+            <p:outputLabel value="evaluacion: "/>
+            <p:inputText value="#{beanLibro.LEvaluacionRedaccion}"/>
+            <br/>
+            <p:outputLabel value="reseña: "/>
+            <p:inputText value="#{beanLibro.LResehna}"/>
+            <br/>
+            <p:outputLabel value="palabras clave: "/>
+            <p:inputText value="#{beanLibro.LPablasClave}"/>
+            <br/>
+            <p:outputLabel value="foto: "/>
+            <p:inputText value="#{beanLibro.LFoto}"/>
+            <br/>
+            <p:outputLabel value="mapa: "/>
+            <p:inputText value="#{beanLibro.LMapaUbicacion}"/>
+            <br/>
+
+            <p:commandButton value="publica" action="#{beanLibro.guardarLibro()}"/>
+            <br/>
+
+            <p:commandButton value="regresar" action="#{beanIndex.INICIO()}"/>
+
+        </h:form>
+    </h:body>
+</html>
+

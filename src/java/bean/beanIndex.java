@@ -15,6 +15,8 @@ public class beanIndex {
     public static final String INDEX = "index";
     public static final String LOGIN = "login";
     public static final String INICIO = "inicio";
+    public static final String PUBLICAR_LIBRO ="publicarLibro";
+    public static final String PUBLICAR_LIBRO_V_1 ="libro";
     public static final String RECUPERAR_PASS = "recuperarPass";
     public static final String MODIFICAR_PERFIL = "modificarperfil";
     public static final String NUEVA_PUBLICACION = "nuevapublicacion";
@@ -23,6 +25,19 @@ public class beanIndex {
     public static final String MI_SOLICITUD = "misolicitud";
     public static final String REGISTRAR = "registrar";
 
+    public  String INICIO() {
+        return INICIO;
+    }
+
+    public String PUBLICAR_LIBRO_V_1() {
+        return PUBLICAR_LIBRO_V_1;
+    }
+
+    public  String PUBLICAR_LIBRO() {
+        return PUBLICAR_LIBRO;
+    }
+
+    
     public  String RECUPERAR_PASS() {
         return RECUPERAR_PASS;
     }

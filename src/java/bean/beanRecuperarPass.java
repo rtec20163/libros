@@ -63,6 +63,7 @@ public class beanRecuperarPass {
 
             message = new FacesMessage(FacesMessage.SEVERITY_ERROR, vCorreo, null);
             faceContext.addMessage(null, message);
+            return beanIndex.RECUPERAR_PASS;
         } else {
             String pass;
             p2 = daou.validarCorreo(p1);
@@ -71,8 +72,7 @@ public class beanRecuperarPass {
             System.out.println("enviando correo");
             pass = p2.getUContrasenha();
             System.out.println("la contraseña : "+pass);
-            message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "enviado correo", null);
-            faceContext.addMessage(null, message);
+            
             email e = new email();
             e.correo(correo, pass);
             System.out.println("correo enviado");
@@ -81,9 +81,7 @@ public class beanRecuperarPass {
             faceContext.addMessage(null, message);
             return beanIndex.INDEX;
         }
-        message = new FacesMessage(FacesMessage.SEVERITY_ERROR, vCorreo, null);
-            faceContext.addMessage(null, message);
-        return beanIndex.RECUPERAR_PASS;
+       
     }
 
     

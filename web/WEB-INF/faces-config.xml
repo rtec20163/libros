@@ -27,6 +27,10 @@
             <to-view-id>/index.xhtml</to-view-id>
             <redirect />
         </navigation-case>
+        <navigation-case>
+            <from-outcome>registrar</from-outcome>
+            <to-view-id>/registrar.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/inicio.xhtml</from-view-id>
@@ -34,6 +38,14 @@
             <from-outcome>index</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
             <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>publicarlibro</from-outcome>
+            <to-view-id>/publicarLibro.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>libro</from-outcome>
+            <to-view-id>/libro.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
@@ -45,6 +57,28 @@
         <navigation-case>
             <from-outcome>recuperarpass</from-outcome>
             <to-view-id>/recuperarPass.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/publicarLibro.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>inicio</from-outcome>
+            <to-view-id>/inicio.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>publicarlibro</from-outcome>
+            <to-view-id>/publicarLibro.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/libro.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>libro</from-outcome>
+            <to-view-id>/libro.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>inicio</from-outcome>
+            <to-view-id>/inicio.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
