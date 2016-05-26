@@ -41,9 +41,10 @@
                 <p><h:outputLabel value="Bienvenido " style="font-weight:bold; color:#ffffff;"/>
                     <h:outputText value="#{beanLogout.usuario}" style="font-weight:bold; color: #ffffff;"/>
                 </p>
-                <p:menuButton  value="Menú"   >
-                    <p:menuitem value="publicar" action="#{beanIndex.PUBLICAR_LIBRO()}"/>
-                    <p:menuitem value="publicar v1" action="#{beanIndex.PUBLICAR_LIBRO_V_1()}"/>
+                <p:menuButton  value="Menú">
+                    <p:menuitem value="Publicar un libro" action="#{beanIndex.PUBLICAR()}"/>
+                    <p:menuitem value="Mis publicaciones" action="#{beanIndex.MIS_PUBLICACIONES()}"/>
+                    <p:menuitem value="Ver todas las publicaciones" action="#{beanIndex.VER_PUBLICACIONES()}"/>
                     <p:menuitem value="Salir " action="#{beanLogout.cerrarSesion()}"/>
                     
                 </p:menuButton>

@@ -15,63 +15,41 @@ public class beanIndex {
     public static final String INDEX = "index";
     public static final String LOGIN = "login";
     public static final String INICIO = "inicio";
-    public static final String PUBLICAR_LIBRO ="publicarLibro";
-    public static final String PUBLICAR_LIBRO_V_1 ="libro";
-    public static final String RECUPERAR_PASS = "recuperarPass";
-    public static final String MODIFICAR_PERFIL = "modificarperfil";
-    public static final String NUEVA_PUBLICACION = "nuevapublicacion";
-    public static final String MIS_ACTIVIDADES = "misactividades";
-    public static final String VER_ACTIVIDADES = "veractividades";
-    public static final String MI_SOLICITUD = "misolicitud";
     public static final String REGISTRAR = "registrar";
-
-    public  String INICIO() {
-        return INICIO;
-    }
-
-    public String PUBLICAR_LIBRO_V_1() {
-        return PUBLICAR_LIBRO_V_1;
-    }
-
-    public  String PUBLICAR_LIBRO() {
-        return PUBLICAR_LIBRO;
-    }
-
+    public static final String RECUPERAR_CONTRASENHA = "recuperarcontrasenha";
+    public static final String PUBLICAR = "publicar";
+    public static final String MIS_PUBLICACIONES = "mispublicaciones";
+    public static final String VER_PUBLICACIONES = "verpublicaciones";
     
-    public  String RECUPERAR_PASS() {
-        return RECUPERAR_PASS;
-    }
-    
-    
-    public String INDEX() {
+    public static String INDEX() {
         return INDEX;
     }
 
-    public String LOGIN() {
+    public static String LOGIN() {
         return LOGIN;
     }
 
-    public String MODIFICAR_PERFIL() {
-        return MODIFICAR_PERFIL;
+    public static String INICIO(){
+        return INICIO;
     }
     
-    public String NUEVA_PUBLICACION(){
-        return NUEVA_PUBLICACION;
-    }
-    
-    public String MIS_ACTIVIDADES(){
-        return MIS_ACTIVIDADES;
-    }
-    
-    public String VER_ACTIVIDADES(){
-        return VER_ACTIVIDADES;
-    }
-    
-    public String MI_SOLICITUD(){
-        return MI_SOLICITUD;
-    }
-    
-    public String REGISTRAR(){
+    public static String REGISTRAR(){
         return REGISTRAR;
+    }
+    
+    public static String RECUPERAR_CONTRASENHA(){
+        return RECUPERAR_CONTRASENHA;
+    }
+    
+    public static String PUBLICAR(){
+        return PUBLICAR;
+    }
+    
+    public static String MIS_PUBLICACIONES(){
+        return MIS_PUBLICACIONES;
+    }
+    
+    public static String VER_PUBLICACIONES(){
+        return VER_PUBLICACIONES;
     }
 }

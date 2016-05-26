@@ -51,6 +51,7 @@ public class UsuarioDao {
         }
         return obj;
     }
+    
     public Usuario validarCorreo(Usuario obj){
         String[] atributos, valores;
         List<Usuario> list;
@@ -73,6 +74,7 @@ public class UsuarioDao {
         return aux;
     
     }
+    
     public boolean existeCorreo(String correo){
         String[] atributos,valores;
         boolean existe;

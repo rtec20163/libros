@@ -14,19 +14,19 @@ import javax.mail.internet.MimeMessage;
 
 /**
  *
- * @author Rodrigo_Rivera
+ * @author luis
  */
-public class email {
-    public void correo(String correo  , String pass) {
+public class mail {
+    public void correo(String correo  , String contra) {
 
-        System.out.println("antes de enviar");
+        System.out.println("Antes de Enviar");
         try {
             // Propiedades de la conexión
             Properties props = new Properties();
             props.setProperty("mail.smtp.host", "smtp.gmail.com");
             props.setProperty("mail.smtp.starttls.enable", "true");
             props.setProperty("mail.smtp.port", "587");
-            props.setProperty("mail.smtp.user", "soporte.libros.rt@gmail.com");
+            props.setProperty("mail.smtp.user", "soporte.prestamo.libros.riesgo@gmail.com");
             props.setProperty("mail.smtp.auth", "true");
 
             // Preparamos la sesion
@@ -38,14 +38,14 @@ public class email {
             message.addRecipient(
                     Message.RecipientType.TO,
                     new InternetAddress(correo));
-            message.setSubject("[soporte]contraseña");
-            message.setText("tu contraseña es: "+pass);
+            message.setSubject("[Préstamo de Libros]Recuperación de contraseña");
+            message.setText("Tu contraseña es:\n "+ contra +"\n Atentamente Soporte de Préstamo de Libros");
 
             // Lo enviamos.
             Transport t = session.getTransport("smtp");
-            //soporte.libros.rt@gmail.com
-            //riesgotec
-            t.connect("soporte.libros.rt@gmail.com", "riesgotec");
+            //soporte.prestamo.libros.riesgo@gmail.com
+            //riesgo12345
+            t.connect("soporte.prestamo.libros.riesgo@gmail.com", "riesgo12345");
             t.sendMessage(message, message.getAllRecipients());
 
             // Cierre.
@@ -53,7 +53,7 @@ public class email {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("enviado");
+        System.out.println("Enviado");
 
     }
 }

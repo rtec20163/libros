@@ -13,8 +13,13 @@ import modelo.Libro;
  * @author luis
  */
 public class LibroDao {
-    private DAO<Libro> dao;
-     public void insertar (Libro obj){
+    private final DAO<Libro> dao;
+    
+    public LibroDao() {
+        dao = new DAO("Libro", "idLibro");
+    }
+    
+    public void insertar (Libro obj){
         try {
             dao.insertar(obj);
         } catch (Exception e) {
@@ -37,6 +42,7 @@ public class LibroDao {
             throw e;
         }
     }
+    
     public Libro obtenerPorID(int id){
         Libro obj;
         try{
@@ -57,4 +63,43 @@ public class LibroDao {
         return list;
     }
     
+    public List<Libro> obtenerPorAutor(int id){
+        List<Libro> list = null;
+        try{
+            list = dao.buscarPorAtributo("LAutor", "" + id);
+        }catch(Exception e){
+            throw e;
+        }
+        return list;
+    }
+    
+    public List<Libro> obtenerPorIsbn(int id){
+        List<Libro> list = null;
+        try{
+            list = dao.buscarPorAtributo("LIsbn", "" + id);
+        }catch(Exception e){
+            throw e;
+        }
+        return list;
+    }
+    
+    public List<Libro> obtenerPorAnho(int id){
+        List<Libro> list = null;
+        try{
+            list = dao.buscarPorAtributo("LAnho", "" + id);
+        }catch(Exception e){
+            throw e;
+        }
+        return list;
+    }
+    
+    public List<Libro> obtenerLista(){
+        List<Libro> list = null;
+        try{
+            list = dao.getAll();
+        }catch(Exception e){
+            throw e;
+        }
+        return list;
+    }
 }
