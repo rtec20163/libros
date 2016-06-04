@@ -1,69 +1,65 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package bean;
 
-import dao.daoUsuario;
+import dao.UsuarioDao;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
-import model.Usuario;
+import modelo.Usuario;
+
 
 /**
  *
- * @author Rodrigo_Rivera
+ * @author esmeralda
  */
 @ManagedBean
 @RequestScoped
 public class beanLogin {
-
-    private final daoUsuario daoU;
+    
+    private final UsuarioDao daoP;
+    
+    
     private String correo;
     private String contrasenha;
-
+    
     private final HttpServletRequest httpServletRequest;
     private final FacesContext faceContext;
     private FacesMessage message;
-
-    public beanLogin() {
-        daoU = new daoUsuario();
+    
+    public beanLogin(){
         faceContext = FacesContext.getCurrentInstance();
         httpServletRequest = (HttpServletRequest) faceContext.getExternalContext().getRequest();
+        daoP = new UsuarioDao();
     }
     
-    /**
-     * 
-     * @return 
-     */
     public String login(){
-        Usuario a1,a2;
-       
-        a1 = new Usuario();
         
-        a1.setUCorreo(correo);
-        a1.setUContrasenha(contrasenha);
-        try {
-            a2 = daoU.verificarUsuario(a1);
-            if(a2 != null){
-                httpServletRequest.getSession().setAttribute("id", a2.getIdUsuario());
-                httpServletRequest.getSession().setAttribute("sesionNombre", a2.getUNombre());
-                message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Acceso Otorgado.", null);
+        Usuario p1,p2;
+        p1 = new Usuario();
+        p1.setUCorreo(correo);
+        p1.setUContrasenha(contrasenha);
+        try{
+            p2 = daoP.verificarUsuario(p1);
+            if(p2 != null){
+                httpServletRequest.getSession().setAttribute("id", p2.getIdUsuario());
+                httpServletRequest.getSession().setAttribute("sesionNombre", p2.getUNombre());
+                message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Acceso Otorgado.", "Acceso Otorgado");
                 faceContext.addMessage(null, message);
-                return beanPaginas.HOME;
+                faceContext.getExternalContext().getFlash().setKeepMessages(true);
+                return beanIndex.INICIO();
             }else{
                 message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario o contraseña incorrecto.", null);
                 faceContext.addMessage(null, message);
-            }            
-        } catch (Exception e) {
+                faceContext.getExternalContext().getFlash().setKeepMessages(true);
+            }
+        }catch(Exception e){
             message = new FacesMessage(FacesMessage.SEVERITY_ERROR,e.getLocalizedMessage(), null);
             faceContext.addMessage(null, message);
+            faceContext.getExternalContext().getFlash().setKeepMessages(true);
         }
-        
-       return beanPaginas.INDEX; // si hay fallo
+        return beanIndex.INDEX();
     }
 
     public String getCorreo() {
@@ -81,5 +77,4 @@ public class beanLogin {
     public void setContrasenha(String contrasenha) {
         this.contrasenha = contrasenha;
     }
-
 }

@@ -1,5 +1,5 @@
-package model;
-// Generated 17-may-2016 15:46:09 by Hibernate Tools 4.3.1
+package modelo;
+// Generated 18/05/2016 02:01:03 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -13,7 +13,8 @@ public class Prestamo  implements java.io.Serializable {
 
      private int idPrestamo;
      private Libro libro;
-     private Usuario usuario;
+     private Usuario usuarioByIdUsuarioPrestador;
+     private Usuario usuarioByIdUsuarioSolicitante;
      private Boolean PActivo;
      private Set<Intercambio> intercambios = new HashSet<Intercambio>(0);
 
@@ -24,10 +25,11 @@ public class Prestamo  implements java.io.Serializable {
     public Prestamo(int idPrestamo) {
         this.idPrestamo = idPrestamo;
     }
-    public Prestamo(int idPrestamo, Libro libro, Usuario usuario, Boolean PActivo, Set<Intercambio> intercambios) {
+    public Prestamo(int idPrestamo, Libro libro, Usuario usuarioByIdUsuarioPrestador, Usuario usuarioByIdUsuarioSolicitante, Boolean PActivo, Set<Intercambio> intercambios) {
        this.idPrestamo = idPrestamo;
        this.libro = libro;
-       this.usuario = usuario;
+       this.usuarioByIdUsuarioPrestador = usuarioByIdUsuarioPrestador;
+       this.usuarioByIdUsuarioSolicitante = usuarioByIdUsuarioSolicitante;
        this.PActivo = PActivo;
        this.intercambios = intercambios;
     }
@@ -46,12 +48,19 @@ public class Prestamo  implements java.io.Serializable {
     public void setLibro(Libro libro) {
         this.libro = libro;
     }
-    public Usuario getUsuario() {
-        return this.usuario;
+    public Usuario getUsuarioByIdUsuarioPrestador() {
+        return this.usuarioByIdUsuarioPrestador;
     }
     
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuarioByIdUsuarioPrestador(Usuario usuarioByIdUsuarioPrestador) {
+        this.usuarioByIdUsuarioPrestador = usuarioByIdUsuarioPrestador;
+    }
+    public Usuario getUsuarioByIdUsuarioSolicitante() {
+        return this.usuarioByIdUsuarioSolicitante;
+    }
+    
+    public void setUsuarioByIdUsuarioSolicitante(Usuario usuarioByIdUsuarioSolicitante) {
+        this.usuarioByIdUsuarioSolicitante = usuarioByIdUsuarioSolicitante;
     }
     public Boolean getPActivo() {
         return this.PActivo;

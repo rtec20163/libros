@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 17-may-2016 15:46:10 by Hibernate Tools 4.3.1 -->
+<!-- Generated 18/05/2016 02:01:04 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="model.Usuario" table="usuario" schema="public" optimistic-lock="version">
+    <class name="modelo.Usuario" table="usuario" schema="public" optimistic-lock="version" >
         <id name="idUsuario" type="int">
             <column name="id_usuario" />
             <generator class="increment" />
@@ -29,17 +29,23 @@
         <property name="UNumeroCalificacion" type="java.lang.Integer">
             <column name="u_numero_calificacion" />
         </property>
-        <set name="prestamos" table="prestamo" inverse="true" lazy="true" fetch="select">
+        <set name="prestamosForIdUsuarioPrestador" table="prestamo" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="id_usuario" />
+                <column name="id_usuario_prestador" />
             </key>
-            <one-to-many class="model.Prestamo" />
+            <one-to-many class="modelo.Prestamo" />
         </set>
         <set name="libros" table="libro" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="id_usuario" />
             </key>
-            <one-to-many class="model.Libro" />
+            <one-to-many class="modelo.Libro" />
+        </set>
+        <set name="prestamosForIdUsuarioSolicitante" table="prestamo" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_usuario_solicitante" />
+            </key>
+            <one-to-many class="modelo.Prestamo" />
         </set>
     </class>
 </hibernate-mapping>

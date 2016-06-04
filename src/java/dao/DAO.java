@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package dao;
 
 import java.util.List;
@@ -11,33 +7,20 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
- *
- * @author Rodrigo_Rivera
- */
-
-/**
  * Clase WRAPPED para la implementacion de los dao.
- * @author esmeralda
+ * @author luis
  * @param <E> - Tabla asociada.
  */
 public class DAO<E> {
 
-    // atributos de la clase
     private  Session session;
     private String tabla;
     private String id;
 
-    //coonstructor para que abra la session
     private DAO(){
         session = HibernateUtil.getSessionFactory().openSession();
+        
     }
-    
-    
-    /**
-     * buscar una tabla un id 
-     * @param tabla
-     * @param id 
-     */
     
     public DAO(String tabla, String id) {
         this();
@@ -45,19 +28,15 @@ public class DAO<E> {
         this.id = id;
     }
     
-    /**
-     * regresa una lista de la tabla 
-     * @return 
-     */
     public List<E> getAll(){
-        List<E> l = null;// la lista que va regresar
-        String hql; // la consulta 
-        Query query; // el objeto para la consulta
+        List<E> l = null;
+        String hql;
+        Query query; 
         try{
-            session.getTransaction().begin(); // abrir la session
-            hql = "from " + tabla; //la consuta de la tabla 
-            query = session.createQuery(hql);  // l
-            if(!query.list().isEmpty()){ // si existe el
+            session.getTransaction().begin();
+            hql = "from " + tabla;
+            query = session.createQuery(hql);
+            if(!query.list().isEmpty()){
                 l = (List<E>)query.list();
             }  
             session.getTransaction().commit();
@@ -68,22 +47,13 @@ public class DAO<E> {
         return l;
     }
     
-    /**
-     * busca un elemento por 
-     * @param atributos
-     * @param valores
-     * @return 
-     */
     public List<E> buscar(String[] atributos,String[] valores){
         List<E> l = null;
         String hql;
         Query query; 
         try{
-            session.getTransaction().begin(); // inicia una session 
-             // hace la consulta 
+            session.getTransaction().begin();
             hql = "from " + tabla + " where " + atributos[0] + " = '" + valores[0] + "'";
-            
-            // revisa la si los atrutos
             for(int i = 1; i < atributos.length; i++){
                 hql +=  " and " + atributos[i] + "= '" + valores[i] + "'";
             }
@@ -99,12 +69,6 @@ public class DAO<E> {
         return l;
     }
     
-    /**
-     * busca por atributo la tabla 
-     * @param atributo
-     * @param valor
-     * @return 
-     */
     public List<E> buscarPorAtributo(String atributo,String valor){
         List<E> list = null;
         String[] atributos,valores;
@@ -120,12 +84,6 @@ public class DAO<E> {
         return list;
     }
     
-    /**
-     * revisa si un elemntos se encuantra
-     * @param atributos
-     * @param valores
-     * @return 
-     */
     public boolean verificarExistencia(String atributos[], String valores[]){ 
         List<E> l = buscar(atributos, valores);
         if(l == null){
@@ -134,10 +92,6 @@ public class DAO<E> {
         return !l.isEmpty();
     }
     
-    /**
-     * inserta un elemento 
-     * @param obj 
-     */
     public void insertar (E obj){
         try {
             session.getTransaction().begin();
@@ -149,10 +103,6 @@ public class DAO<E> {
         }
     }
     
-    /**
-     * 
-     * @param obj 
-     */
     public void actualizar (E obj){
         try {
             session.getTransaction().begin();
@@ -164,10 +114,6 @@ public class DAO<E> {
         }
     }
     
-    /**
-     * elimana un bojeto 
-     * @param obj 
-     */
     public void borrar (E obj){
         try {
             session.getTransaction().begin();
@@ -179,11 +125,6 @@ public class DAO<E> {
         }
     }
     
-    /**
-     * obtine un bojeto por el id 
-     * @param id
-     * @return 
-     */
     public E obtenerPorID(int id){
         E obj = null;
         List<E> list = null;
@@ -203,4 +144,3 @@ public class DAO<E> {
     }
     
 }
-

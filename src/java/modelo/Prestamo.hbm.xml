@@ -1,18 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 17-may-2016 15:46:10 by Hibernate Tools 4.3.1 -->
+<!-- Generated 18/05/2016 02:01:04 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
-    <class name="model.Prestamo" table="prestamo" schema="public" optimistic-lock="version">
+    <class name="modelo.Prestamo" table="prestamo" schema="public" optimistic-lock="version">
         <id name="idPrestamo" type="int">
             <column name="id_prestamo" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
-        <many-to-one name="libro" class="model.Libro" fetch="select">
+        <many-to-one name="libro" class="modelo.Libro" fetch="select">
             <column name="id_libro" />
         </many-to-one>
-        <many-to-one name="usuario" class="model.Usuario" fetch="select">
-            <column name="id_usuario" />
+        <many-to-one name="usuarioByIdUsuarioPrestador" class="modelo.Usuario" fetch="select">
+            <column name="id_usuario_prestador" />
+        </many-to-one>
+        <many-to-one name="usuarioByIdUsuarioSolicitante" class="modelo.Usuario" fetch="select">
+            <column name="id_usuario_solicitante" />
         </many-to-one>
         <property name="PActivo" type="java.lang.Boolean">
             <column name="p_activo" />
@@ -21,7 +24,7 @@
             <key>
                 <column name="id_prestamo" />
             </key>
-            <one-to-many class="model.Intercambio" />
+            <one-to-many class="modelo.Intercambio" />
         </set>
     </class>
 </hibernate-mapping>
