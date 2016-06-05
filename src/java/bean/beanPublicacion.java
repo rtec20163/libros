@@ -15,7 +15,7 @@ import modelo.Usuario;
 
 /**
  *
- * @author luis
+ * 
  */
 @ManagedBean
 @RequestScoped
@@ -119,55 +119,6 @@ public class beanPublicacion {
         }
     }
     
-//    public String actualizarPublicacion(){
-//        String error;
-//        Usuario profesor;
-//        error = checkCampos(false);
-//        try{
-//            if(error.equals("")){
-//                profesor = daoP.obtenerPorID(id);
-//                libro.setICupomaximo(cupoMaximo);
-//                libro.setSDescripciom(descripcion);
-//                if(area != null){
-//                    actividad.setArea(area);
-//                }
-//                if(tipo != null){
-//                    actividad.setTipo(tipo);
-//                }
-//                actividad.setProfesor(profesor);
-//                dao.actualizar(actividad);
-//                message = new FacesMessage(FacesMessage.SEVERITY_INFO,"Actividad actualizada exitosamente.", null);
-//                faceContext.addMessage(null, message);
-//                faceContext.getExternalContext().getFlash().setKeepMessages(true);
-//                return beanIndex.ACTUALIZAR_PUBLICACION;
-//            }else{
-//                message = new FacesMessage(FacesMessage.SEVERITY_ERROR,error, null);
-//                faceContext.addMessage(null, message);
-//                faceContext.getExternalContext().getFlash().setKeepMessages(true);
-//                return beanIndex.ACTUALIZAR_PUBLICACION;
-//            }
-//        }catch(Exception e){
-//            message = new FacesMessage(FacesMessage.SEVERITY_ERROR,e.getLocalizedMessage(), null);
-//            faceContext.addMessage(null, message);
-//            faceContext.getExternalContext().getFlash().setKeepMessages(true);
-//            return beanIndex.ACTUALIZAR_PUBLICACION;
-//        }
-//    }
-//    
-//    public String borrarPublicacion(){
-//        try{
-//            dao.borrar(actividad);
-//            message = new FacesMessage(FacesMessage.SEVERITY_INFO,"Actividad borrada exitosamente.", null);
-//            faceContext.addMessage(null, message);
-//            faceContext.getExternalContext().getFlash().setKeepMessages(true);
-//            return beanIndex.BORRAR_PUBLICACION;
-//        }catch(Exception e){
-//            message = new FacesMessage(FacesMessage.SEVERITY_ERROR,e.getLocalizedMessage(), null);
-//            faceContext.addMessage(null, message);
-//            faceContext.getExternalContext().getFlash().setKeepMessages(true);
-//            return beanIndex.BORRAR_PUBLICACION;
-//        }
-//    }
     
     public List<Libro> mostrarMisPublicaciones(int id){
         List<Libro> resultado;
@@ -189,26 +140,6 @@ public class beanPublicacion {
         }
         return resultado;
     }
-
-//    private List<Area> mostrarAreas(){
-//        List<Area> list;
-//        try{
-//            list = daoA.obtenerLista();
-//        }catch(Exception e){
-//            list = new LinkedList<>();
-//        }
-//        return list;
-//    }
-    
-//    private List<Tipo> mostrarTipos(){
-//        List<Tipo> list;
-//        try{
-//            list = daoT.obtenerLista();
-//        }catch(Exception e){
-//            list = new LinkedList<>();
-//        }
-//        return list;
-//    }
 
     
     private String checkCampos(){
@@ -252,22 +183,6 @@ public class beanPublicacion {
         return "";
     }
     
-//    public String definirActividad(Actividad actividad,boolean actualizar){
-//        if(actividad == null){
-//            message = new FacesMessage(FacesMessage.SEVERITY_ERROR,"Actividad invalida.", null);
-//            faceContext.addMessage(null, message);
-//            faceContext.getExternalContext().getFlash().setKeepMessages(true);
-//            return beanIndex.MIS_ACTIVIDADES;
-//        }else{
-//            httpServletRequest.getSession().setAttribute("sesionActividad", actividad.getIdActividad());
-//            if(actualizar){
-//                return beanIndex.ACTUALIZAR_PUBLICACION;
-//            }else{
-//                return beanIndex.BORRAR_PUBLICACION;
-//            }
-//        }
-//    }
-    
     public Libro getActividad() {
         return libro;
     }
@@ -275,136 +190,6 @@ public class beanPublicacion {
     public void setActividad(Libro libro) {
         this.libro = libro;
     }
-
-//    public String getTipoSeleccionado(){
-//        definirActividad();
-//        if(tipo == null){
-//            return "No se ha seleccionado tipo.";
-//        }else{
-//            return tipo.toString();
-//        }
-//    }
-//    
-//    public String getAreaSeleccionada(){
-//        definirActividad();
-//        if(area == null){
-//            return "No se ha seleccionado area.";
-//        }else{
-//            return area.toString();
-//        }
-//    }
-    
-//    public void listenerArea(ValueChangeEvent e){
-//        Area aux;
-//        try{
-//            String a = e.getNewValue().toString();
-//            for(int i = 0; i < areas.size(); i++){
-//                aux = areas.get(id);
-//                if(aux.getSArea().equals(a)){
-//                    area = aux;
-//                }
-//            }
-//        }catch(Exception ex){
-//        
-//        }
-//    }
-//    
-//    public void listenerTipo(ValueChangeEvent e){
-//        Tipo aux;
-//        try{
-//            String a = e.getNewValue().toString();
-//            for(int i = 0; i < tipos.size(); i++){
-//                aux = tipos.get(id);
-//                if(aux.getSTipo().equals(a)){
-//                    tipo = aux;
-//                }
-//            }
-//        }catch(Exception ex){
-//        
-//        }
-//    }
-//    
-//    public Area getArea() {
-//        return area;
-//    }
-//
-//    public void setArea(Area area) {
-//        if(area != null){
-//            this.area = area;
-//        }
-//    }
-//
-//    public Tipo getTipo() {
-//        return tipo;
-//    }
-//
-//    public void setTipo(Tipo tipo) {
-//        if(tipo != null){
-//            this.tipo = tipo;
-//        }
-//    }
-//
-//    public int getCupoMaximo() {
-//        return cupoMaximo;
-//    }
-//
-//    public void setCupoMaximo(int cupoMaximo) {
-//        this.cupoMaximo = cupoMaximo;
-//    }
-//
-//    public String getDescripcion() {
-//        return descripcion;
-//    }
-//
-//    public void setDescripcion(String descripcion) {
-//        this.descripcion = descripcion;
-//    }
-//
-//    public String getCupo() {
-//        return cupo;
-//    }
-//
-//    public void setCupo(String cupo) {
-//        this.cupo = cupo;
-//    }
-//
-//    public String getMensajeCupo() {
-//        return mensajeCupo;
-//    }
-//
-//    public void setMensajeCupo(String mensajeCupo) {
-//        this.mensajeCupo = mensajeCupo;
-//    }
-//
-//    public List<Area> getAreas() {
-//        return areas;
-//    }
-//
-//    public void setAreas(List<Area> areas) {
-//        this.areas = areas;
-//    }
-//
-//    public List<Tipo> getTipos() {
-//        return tipos;
-//    }
-//
-//    public void setTipos(List<Tipo> tipos) {
-//        this.tipos = tipos;
-//    }
-//    
-//    public int disponibles(int id){
-//        List<Solicitud> resultado;
-//        int respuesta;
-//        resultado = daoS.obtenerPorActividad(id);
-//        if(resultado == null){
-//            respuesta = 0;
-//        }else{
-//            
-//            respuesta = resultado.size();
-//        }
-//        
-//        return respuesta;
-//    }
 
     public Libro getLibro() {
         return libro;

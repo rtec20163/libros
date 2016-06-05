@@ -57,7 +57,7 @@ public class beanRecuperarContrasenha {
             p2 = dao.validarCorreo(p1);
             contra = p2.getUContrasenha();
             mail e = new mail();
-            e.correo(correo, contra);
+            e.correoPass(correo, contra);
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "El correo de recuperación fue enviado", null);
             faceContext.addMessage(null, message);
             faceContext.getExternalContext().getFlash().setKeepMessages(true);
