@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Intercambio de Libros</title>
+        <style type="text/css">
+            html, body {
+                height: 100%;
+                width: 100%;
+                padding: 0;
+                background-image:url("img/libros.jpg");
+                margin: 0;
+            }
+
+            #full-screen-background-image {
+                z-index: -999;
+                width: 100%;
+                height: auto;
+                position: fixed;
+                top: 0;
+                left: 0;
+            }
+            .login-page {
+                width: 360px;
+                padding: 8% 0 0;
+                margin: auto;
+            }
+            .form {
+                position: relative;
+                z-index: 1;
+                background-image:url("img/tooplate_main.png");
+                max-width: 360px;
+                margin: 0 auto 100px;
+                padding: 45px;
+                text-align: center;
+ 
+            }
+            .form input {
+                font-family: "Roboto", sans-serif;
+                outline: 0;
+                background: #f2f2f2;
+                width: 100%;
+                border: 0;
+                margin: 0 0 15px;
+                padding: 15px;
+                box-sizing: border-box;
+                font-size: 14px;
+            }
+            .campos {
+                font-family: "Comic Sans MS", sans-serif;
+                text-transform: uppercase;
+                outline: 0;
+                /*background-image:  url("tooplate_main.png");*/
+                /*background-color:#FFFFFF ;*/
+                width: 100%;
+                border: 0;
+                padding: 15px;
+                color: #FA7A7A;
+                font-size: 15px;
+                -webkit-transition: all 0.3 ease;
+                cursor: pointer;
+            }
+            
+            .ui-growl {
+                position:absolute;
+                top:50%;
+                left:39%;
+                z-index:9999;
+            }
+
+            
+
+        </style>
+    </h:head>
+    <h:body>
+        <div class="form ">
+
+            <h:form id="formLogin" >
+                <p:growl id="messages" showDetail="true" sticky="true"  />
+                <div class="campos">
+                <h3>Recupera tu contraseña</h3>
+                <p:inputText  value="#{beanRecuperarContrasenha.correo}" placeholder="Ingresa tu Contraseña" />
+                </div>
+                <div class="boton">
+                    <p:commandButton  value="Recuperar" action="#{beanRecuperarContrasenha.recuperarContrasenha()}" style="background: #DF7401;border: outset; color: #424242;
+                                                                                                        padding: 12px 15px;
+                                                                                                        text-align: center;
+                                                                                                        text-decoration: none;
+                                                                                                        display: inline-block;
+                                                                                                        font-size: 16px;
+                                                                                                        margin: 4px 2px;
+                                                                                                        cursor: pointer;"/>
+                    <p:commandButton id ="boton1" value="Cancelar" action="#{beanIndex.INDEX()}" style="background: #DF7401;border: outset; color: #424242;
+                                                                                                        padding: 12px 15px;
+                                                                                                        text-align: center;
+                                                                                                        text-decoration: none;
+                                                                                                        display: inline-block;
+                                                                                                        font-size: 16px;
+                                                                                                        margin: 4px 2px;
+                                                                                                        cursor: pointer;"/>
+                </div>
+            </h:form>
+        </div>
+
+    </h:body>
+</html>
