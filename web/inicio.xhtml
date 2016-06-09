@@ -14,10 +14,12 @@
             }
         </style>
     </h:head>
-    <h:body>               
+    <h:body>
+        <script src = "http://maps.googleapis.com/maps/api/js?sensor=true|false" type="text/javascript"></script>
+
         <h:form>
 
-            <p:growl id="messages" showDetail="true" sticky="true"  />
+            <p:growl id="messages" showDetail="true" sticky="false" life="3000"  />
 
             <p:menubar style="background:#D8D8D8;border: outset; ">
 
@@ -25,7 +27,7 @@
 
                 <p:submenu label="Ver" icon="ui-icon-document">
                     <p:menuitem value="Mis publicaciones" url="#{beanIndex.MIS_PUBLICACIONES()}" icon="fa fa-home"/>                
-                    
+
                 </p:submenu> 
                 <p:submenu label="Solicitudes" icon="ui-icon-pencil">
                     <p:menuitem value="Mis solicitudes " action="#{beanIndex.MIS_SOLICITUDES()}"/>
@@ -45,8 +47,8 @@
                         <h:outputLabel id="bienvenido" value="Bienvenido  "/>
                         <h:outputText value="#{beanLogout.usuario}"/><br/>
                         Libros Disponibles</span>
-                    
-                    
+
+
                 </div>
             </div>
             <p:dataTable var="publicaciones" value="#{beanPublicacion.mostrarPublicaciones(beanLogout.id)}" resizableColumns="true" style="margin-top: 20px" emptyMessage="Todavía no hay actividades que mostrar">
@@ -70,10 +72,11 @@
 
 
                 <p:column headerText="Prestamo">
-                    <h:commandButton value="Solicitar" action="inicio" />
+                    <h:commandButton value="Solicitar" action="inicio"  />
                 </p:column>
 
             </p:dataTable>
+            <p:gmap center="19.323799,-99.1807947" zoom="13" type="ROADMAP" style="width:100%;height:400px" model="#{beanPublicacion.mostrarTodosMarcadores(beanLogout.id)}" />
 
 
         </h:form>        

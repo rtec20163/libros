@@ -1,4 +1,3 @@
-
 package bean;
 
 import javax.faces.bean.ManagedBean;
@@ -21,11 +20,21 @@ public class beanIndex {
     public static final String PUBLICAR = "publicar.xhtml";
     public static final String MIS_PUBLICACIONES = "misPublicaciones.xhtml";
     public static final String VER_PUBLICACIONES = "verpublicaciones";
+    public static final String MIS_SOLICITUDES = "missolicitudes";
+    public static final String SOLICITUDES = "solicitudes";
 
     public String MAPA() {
         return MAPA;
     }
-   
+
+    public static String MIS_SOLICITUDES() {
+        return MIS_SOLICITUDES;
+    }
+
+    public static String SOLICITUDES() {
+        return SOLICITUDES;
+    }
+
     public static String INDEX() {
         return INDEX;
     }
@@ -34,27 +43,27 @@ public class beanIndex {
         return LOGIN;
     }
 
-    public static String INICIO(){
+    public static String INICIO() {
         return INICIO;
     }
-    
-    public static String REGISTRAR(){
+
+    public static String REGISTRAR() {
         return REGISTRAR;
     }
-    
-    public static String RECUPERAR_CONTRASENHA(){
+
+    public static String RECUPERAR_CONTRASENHA() {
         return RECUPERAR_CONTRASENHA;
     }
-    
-    public static String PUBLICAR(){
+
+    public static String PUBLICAR() {
         return PUBLICAR;
     }
-    
-    public static String MIS_PUBLICACIONES(){
+
+    public static String MIS_PUBLICACIONES() {
         return MIS_PUBLICACIONES;
     }
-    
-    public static String VER_PUBLICACIONES(){
+
+    public static String VER_PUBLICACIONES() {
         return VER_PUBLICACIONES;
     }
 }

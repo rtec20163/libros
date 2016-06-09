@@ -156,6 +156,21 @@ public class beanPublicacion {
         return marcadores;
     }
 
+    public MapModel mostrarTodosMarcadores(int idd) {
+        MapModel marcadores = new DefaultMapModel();
+        List<Libro> resultado;
+        try {
+            resultado = dao.obtenerLista(idd);
+            for(Libro librotemp : resultado){
+                marcadores.addOverlay(new Marker(new LatLng(librotemp.getLLatitud(), librotemp.getLLongitud()), librotemp.getLTitulo()));
+            }
+        } catch (Exception e) {
+            resultado = new LinkedList<>();
+        }
+        return marcadores;
+    }
+
+    
     
     public List<Libro> mostrarPublicaciones(int id_usuario) {
         List<Libro> resultado;
