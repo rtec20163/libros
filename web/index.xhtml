@@ -27,11 +27,10 @@
                     <p:inputText  value="#{beanLogin.correo}" placeholder="Correo" />
                     <p:password  value="#{beanLogin.contrasenha}" placeholder="Contraseña"/>
                 </div>
-                <div class="boton">
                     <p:commandButton class="boton" id ="boton" value="Ingresar" action="#{beanLogin.login()}"/>
                     <p:commandButton class="boton" id ="boton1" value="Registrarse" action="#{beanIndex.REGISTRAR()}"/>
                     <p:commandButton class="boton"  value="¿Olvidaste tu constraseña?" action="#{beanIndex.RECUPERAR_CONTRASENHA()}"/>
-                </div>
+                
             </h:form>
         </div>
 

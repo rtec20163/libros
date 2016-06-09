@@ -10,46 +10,71 @@
         <style type="text/css">
             body {
                 background-color: #6E6E6E;
-                background-image:url("img/fondoC.jpg");
+                background-image:url("img/fondoC.png");
             }
         </style>
-
-
     </h:head>
+    <h:body>               
+        <h:form>
 
-    <h:body>
-        <img id="full-screen-background-image" alt="full-screen-background-image" src="img/fondoC.png"  />
-        <div class="menu">
-            <h:form>
-                <p:growl id="messages" showDetail="true" sticky="true"  />
-                <p><h:outputLabel id="bienvenido" value="Bienvenido"/>
-                    <h:outputText value="#{beanLogout.usuario}" style="font-weight:bold;font-size: 250%; color:#F5F6CE; font-family: Roboto;"/>
-                </p>
-                <p:menubar style="background:#D8D8D8;border: outset; ">
-                    <p:submenu label="Publicar" icon="ui-icon-pencil">
-                        <p:menuitem value="Publicar un libro" action="#{beanIndex.PUBLICAR()}" icon="ui-icon-right-open-1"/>
-                    </p:submenu>
-                    <p:submenu label="Ver" icon="ui-icon-document">
-                        <p:menuitem value="Mis publicaciones" action="#{beanIndex.MIS_PUBLICACIONES()}" icon="fa fa-home"/>                
-                        <p:separator />               
-                        <p:menuitem value="Publicaciones" action="#{beanIndex.VER_PUBLICACIONES()}" icon="icon-th-list"/>
-                    </p:submenu> 
-                    <p:submenu label="Solicitudes" icon="ui-icon-pencil">
-                        <p:menuitem value="Mis solicitudes " action="#{beanIndex.MIS_SOLICITUDES()}"/>
-                        <p:separator />   
-                        <p:menuitem value="Solicitudes " action="#{beanIndex.SOLICITUDES()}"/>
-                        <p:separator />
-                        <p:menuitem value="Solicitudes aceptadas" action="#{beanIndex.SOLICITUDES_ACEPTADAS()}"/>
-                    </p:submenu>
-                    <p:menuitem value="Cerrar Sesión" action="#{beanLogout.cerrarSesion()}" icon="ui-icon-extlink" />                       
-                </p:menubar>
+            <p:growl id="messages" showDetail="true" sticky="true"  />
+
+            <p:menubar style="background:#D8D8D8;border: outset; ">
+                <p:submenu label="Publicar" icon="ui-icon-pencil">
+                    <p:menuitem value="Publicar un libro" action="#{beanIndex.PUBLICAR()}" icon="ui-icon-right-open-1"/>
+                </p:submenu>
+                <p:submenu label="Ver" icon="ui-icon-document">
+                    <p:menuitem value="Mis publicaciones" action="#{beanIndex.MIS_PUBLICACIONES()}" icon="fa fa-home"/>                
+                    <p:separator />               
+                    <p:menuitem value="Publicaciones" action="#{beanIndex.VER_PUBLICACIONES()}" icon="icon-th-list"/>
+                </p:submenu> 
+                <p:submenu label="Solicitudes" icon="ui-icon-pencil">
+                    <p:menuitem value="Mis solicitudes " action="#{beanIndex.MIS_SOLICITUDES()}"/>
+                    <p:separator />   
+                    <p:menuitem value="Solicitudes " action="#{beanIndex.SOLICITUDES()}"/>
+                    <p:separator />
+                    <p:menuitem value="Solicitudes aceptadas" action="#{beanIndex.SOLICITUDES_ACEPTADAS()}"/>
+                </p:submenu>
+                <p:menuitem value="Cerrar Sesión" action="#{beanLogout.cerrarSesion()}" icon="ui-icon-extlink" />                       
+            </p:menubar>
+            <div class="contenedor">
+                <div class="contenedor-logo">                    
+                <a href="inicio.xhtml"> <img id="logo-rtec" src="img/RTEC-1_1.jpg"/></a>
+                </div>                
+                <div class="contenedor-texto">                
+                    <span class="menu">
+                    <h:outputLabel id="bienvenido" value="Bienvenido  "/>
+                    <h:outputText value="#{beanLogout.usuario}"/><br/>
+                    Libros Disponibles</span>
+                </div>
+            </div>
+            <p:dataTable var="publicaciones" value="#{beanPublicacion.mostrarPublicaciones()}" resizableColumns="true" style="margin-top: 20px" emptyMessage="Todavía no hay actividades que mostrar">
+                <p:column style="width:16px">
+                    <p:rowToggler />
+                </p:column>
+                <p:column headerText="Titulo">
+                    <h:outputText value="#{publicaciones.LTitulo}" />
+                </p:column>
+
+                <p:column headerText="Autor">
+                    <h:outputText value="#{publicaciones.LAutor}" />
+                </p:column>
+
+                <p:column headerText="Editorial">
+                    <h:outputText value="#{publicaciones.LEditorial}" />
+                </p:column>
+
+                <p:column headerText="Detalles">
+                    <h:commandButton value="Detalles" action="#{beanPublicacion.definirActividad1(publicaciones, false)}" />
+                </p:column>
+
+            </p:dataTable>
 
 
-            </h:form>
-        </div>
-        <div>
-            <img id="logo-rtec" src="img/RTEC-1_1.jpg" width="15%" height="15%"/>
-        </div>
+        </h:form>        
+
+
+
+
     </h:body>
 </html>
-
