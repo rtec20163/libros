@@ -20,9 +20,9 @@
             <p:growl id="messages" showDetail="true" sticky="true"  />
 
             <p:menubar style="background:#D8D8D8;border: outset; ">
-                <p:submenu label="Publicar" icon="ui-icon-pencil">
-                    <p:menuitem value="Publicar un libro" action="#{beanIndex.PUBLICAR()}" icon="ui-icon-right-open-1"/>
-                </p:submenu>
+
+                <p:menuitem value="Publicar un libro" action="#{beanIndex.PUBLICAR()}" icon="ui-icon-right-open-1"/>
+
                 <p:submenu label="Ver" icon="ui-icon-document">
                     <p:menuitem value="Mis publicaciones" action="#{beanIndex.MIS_PUBLICACIONES()}" icon="fa fa-home"/>                
                     <p:separator />               
@@ -39,19 +39,16 @@
             </p:menubar>
             <div class="contenedor">
                 <div class="contenedor-logo">                    
-                <a href="inicio.xhtml"> <img id="logo-rtec" src="img/RTEC-1_1.jpg"/></a>
+                    <a href="inicio.xhtml"> <img id="logo-rtec" src="img/RTEC-1_1.jpg"/></a>
                 </div>                
                 <div class="contenedor-texto">                
                     <span class="menu">
-                    <h:outputLabel id="bienvenido" value="Bienvenido  "/>
-                    <h:outputText value="#{beanLogout.usuario}"/><br/>
-                    Libros Disponibles</span>
+                        <h:outputLabel id="bienvenido" value="Bienvenido  "/>
+                        <h:outputText value="#{beanLogout.usuario}"/><br/>
+                        Libros Disponibles</span>
                 </div>
             </div>
             <p:dataTable var="publicaciones" value="#{beanPublicacion.mostrarPublicaciones()}" resizableColumns="true" style="margin-top: 20px" emptyMessage="Todavía no hay actividades que mostrar">
-                <p:column style="width:16px">
-                    <p:rowToggler />
-                </p:column>
                 <p:column headerText="Titulo">
                     <h:outputText value="#{publicaciones.LTitulo}" />
                 </p:column>
@@ -59,13 +56,20 @@
                 <p:column headerText="Autor">
                     <h:outputText value="#{publicaciones.LAutor}" />
                 </p:column>
-
                 <p:column headerText="Editorial">
                     <h:outputText value="#{publicaciones.LEditorial}" />
                 </p:column>
+                <p:column headerText="Palabras clave">
+                    <h:outputText value="#{publicaciones.LPablasClave}" />
+                </p:column>
 
-                <p:column headerText="Detalles">
-                    <h:commandButton value="Detalles" action="#{beanPublicacion.definirActividad1(publicaciones, false)}" />
+                <p:column headerText="Usuario">
+                    <h:outputText value="#{publicaciones.usuario.UNombre}"/>
+                </p:column>
+
+
+                <p:column headerText="Prestamo">
+                    <h:commandButton value="Solicitar" action="#{beanPublicacion.definirActividad1(publicaciones, false)}" />
                 </p:column>
 
             </p:dataTable>

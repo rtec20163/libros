@@ -82,14 +82,15 @@
                     <p><h:outputLabel value="Publicaciones de " style="font-weight:bold;font-size: 300%; color:#F5F6CE; font-family: Roboto;"/><h:outputText value="#{beanLogout.usuario}" style="font-weight:bold;font-size: 300%; color:#F5F6CE; font-family: Roboto;"/></p>
 
                     <p:dataTable var="publicacion" value="#{beanPublicacion.mostrarMisPublicaciones(beanLogout.id)}" resizableColumns="true" style="margin-top: 160px" emptyMessage="Todavía no tienes publicaciones">
-                        <p:column style="width:16px">style="font-weight:bold;font-size: 300%; color:#F5F6CE; font-family: Roboto;"
-                            <p:rowToggler />
-                        </p:column>
+
                         <p:column headerText="Titulo">
                             <h:outputText value="#{publicacion.LTitulo}" />
                         </p:column>
                         <p:column headerText="Autor">
                             <h:outputText value="#{publicacion.LAutor}" />
+                        </p:column>
+                        <p:column headerText="Palabras clave">
+                            <h:outputText value="#{publicaciones.LPablasClave}" />
                         </p:column>
 
                         <p:column headerText="Editorial">
@@ -100,13 +101,7 @@
                         </p:column> 
                         <p:column headerText="longitud">
                             <h:outputText value="#{publicacion.LLongitud}" />
-                        </p:column> 
-                        <!--<p:column headerText="Actualizar">
-                            <h:commandButton value="Actualizar" action="#{beanPublicacion.definirActividad(publicacion, true)}" />
                         </p:column>
-                        <p:column headerText="Eliminar">
-                            <h:commandButton value="Eliminar" action="#{beanPublicacion.definirActividad(publicacion, false)}" />
-                        </p:column>-->
                     </p:dataTable>
                     <p:gmap center="36.890257,30.707417" zoom="13" type="HYBRID" style="width:100%;height:400px" model="#{beanPublicacion.mostrarMarcadores(beanLogout.id)}" />
 
