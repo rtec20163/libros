@@ -18,8 +18,8 @@ public class beanIndex {
     public static final String MAPA = "mapa";
     public static final String REGISTRAR = "registrar";
     public static final String RECUPERAR_CONTRASENHA = "recuperarcontrasenha";
-    public static final String PUBLICAR = "publicar";
-    public static final String MIS_PUBLICACIONES = "mispublicaciones";
+    public static final String PUBLICAR = "publicar.xhtml";
+    public static final String MIS_PUBLICACIONES = "misPublicaciones.xhtml";
     public static final String VER_PUBLICACIONES = "verpublicaciones";
 
     public String MAPA() {

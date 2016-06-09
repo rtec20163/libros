@@ -31,7 +31,7 @@ public class DraggableMarkersView implements Serializable {
         draggableModel = new DefaultMapModel();
           
         //Shared coordinates
-        LatLng coord2 = new LatLng(36.883707, 30.689216);
+        LatLng coord2 = new LatLng(19.323799,-99.1807947);
           
         //Draggable
         draggableModel.addOverlay(new Marker(coord2, "Ataturk Parki"));

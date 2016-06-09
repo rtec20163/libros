@@ -70,7 +70,7 @@
         <div class="form ">
 
             <h:form id="formLogin" >
-                <p:growl id="messages" showDetail="true" sticky="true"  />
+                <p:growl id="messages" showDetail="true" sticky="false"  />
                 <div class="campos">
                    <p:inputText  value="#{beanRegistro.nombre}" placeholder="Nombres" />       
                    <p:inputText  value="#{beanRegistro.apellido}" placeholder="Apellidos"/>
@@ -79,7 +79,7 @@
                     <p:password value="#{beanRegistro.contrasenha}" placeholder="Contraseña"/>
                     <p:password  value="#{beanRegistro.contrasenha2}" placeholder="Confirmar Contraseña"/>
                     
-                    <p:commandButton  value="Registrarse" action="#{beanRegistro.registrarUsuario()}" style="background: #DF7401; border: outset; color: #424242;
+                    <p:commandButton update="messages"  value="Registrarse" action="#{beanRegistro.registrarUsuario()}" style="background: #DF7401; border: outset; color: #424242;
                                                                                                         padding: 12px 20px;
                                                                                                         text-align: center;
                                                                                                         text-decoration: none;

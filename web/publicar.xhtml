@@ -109,7 +109,7 @@
                     <h:outputText id="coo2" value="#{draggableMarkersView.marker.latlng.lng}" title="longitud"/>
                     <p:growl id="growl" showDetail="true" />
 
-                    <p:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID"  model="#{draggableMarkersView.draggableModel}" style="width:100%;height:400px">
+                    <p:gmap id="gmap" center="19.323799,-99.1807947" zoom="13" type="ROADMAP   "  model="#{draggableMarkersView.draggableModel}" style="width:100%;height:400px">
                         <p:ajax event="markerDrag" listener="#{draggableMarkersView.onMarkerDrag}" update="growl,coo1,coo2" />
                     </p:gmap>
                     
