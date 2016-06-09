@@ -5,6 +5,7 @@
  */
 package dao;
 
+import java.util.LinkedList;
 import java.util.List;
 import modelo.Libro;
 
@@ -101,5 +102,23 @@ public class LibroDao {
             throw e;
         }
         return list;
+    }
+    
+    public List<Libro> obtenerLista(int id_usuario){
+        List<Libro> list = null;        
+        LinkedList<Libro> resultado= new LinkedList<>();
+        try{
+            list = dao.getAll();
+            
+            for(Libro libro:list){
+                if(libro.getUsuario().getIdUsuario() != id_usuario){
+                    resultado.add(libro);
+                }
+            }
+            
+        }catch(Exception e){
+            throw e;
+        }
+        return resultado;
     }
 }

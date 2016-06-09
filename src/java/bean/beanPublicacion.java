@@ -157,10 +157,10 @@ public class beanPublicacion {
     }
 
     
-    public List<Libro> mostrarPublicaciones() {
+    public List<Libro> mostrarPublicaciones(int id_usuario) {
         List<Libro> resultado;
         try {
-            resultado = dao.obtenerLista();
+            resultado = dao.obtenerLista(id_usuario);
         } catch (Exception e) {
             resultado = new LinkedList<>();
         }

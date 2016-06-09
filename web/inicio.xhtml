@@ -25,8 +25,7 @@
 
                 <p:submenu label="Ver" icon="ui-icon-document">
                     <p:menuitem value="Mis publicaciones" action="#{beanIndex.MIS_PUBLICACIONES()}" icon="fa fa-home"/>                
-                    <p:separator />               
-                    <p:menuitem value="Publicaciones" action="#{beanIndex.VER_PUBLICACIONES()}" icon="icon-th-list"/>
+                    
                 </p:submenu> 
                 <p:submenu label="Solicitudes" icon="ui-icon-pencil">
                     <p:menuitem value="Mis solicitudes " action="#{beanIndex.MIS_SOLICITUDES()}"/>
@@ -46,9 +45,11 @@
                         <h:outputLabel id="bienvenido" value="Bienvenido  "/>
                         <h:outputText value="#{beanLogout.usuario}"/><br/>
                         Libros Disponibles</span>
+                    
+                    
                 </div>
             </div>
-            <p:dataTable var="publicaciones" value="#{beanPublicacion.mostrarPublicaciones()}" resizableColumns="true" style="margin-top: 20px" emptyMessage="Todavía no hay actividades que mostrar">
+            <p:dataTable var="publicaciones" value="#{beanPublicacion.mostrarPublicaciones(beanLogout.id)}" resizableColumns="true" style="margin-top: 20px" emptyMessage="Todavía no hay actividades que mostrar">
                 <p:column headerText="Titulo">
                     <h:outputText value="#{publicaciones.LTitulo}" />
                 </p:column>
@@ -69,7 +70,7 @@
 
 
                 <p:column headerText="Prestamo">
-                    <h:commandButton value="Solicitar" action="#{beanPublicacion.definirActividad1(publicaciones, false)}" />
+                    <h:commandButton value="Solicitar" action="inicio" />
                 </p:column>
 
             </p:dataTable>
