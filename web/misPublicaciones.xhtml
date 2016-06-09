@@ -36,7 +36,7 @@
                 text-align: center;
                 box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
             }
-            
+
             #boton {
                 position: relative;
                 z-index: 1;
@@ -56,7 +56,7 @@
                 box-sizing: border-box;
                 font-size: 13px;
             }
-            
+
             .ui-growl {
                 position:absolute;
                 top:50%;
@@ -69,6 +69,7 @@
         </style>
     </h:head>
     <h:body>
+        <script src = "http://maps.googleapis.com/maps/api/js?sensor=true|false" type="text/javascript"></script>
         <div >
 
         </div>
@@ -79,7 +80,7 @@
                 <p:growl id="messages" showDetail="true" sticky="true"  />
                 <div class="campos">
                     <p><h:outputLabel value="Publicaciones de " style="font-weight:bold;font-size: 300%; color:#F5F6CE; font-family: Roboto;"/><h:outputText value="#{beanLogout.usuario}" style="font-weight:bold;font-size: 300%; color:#F5F6CE; font-family: Roboto;"/></p>
-                    
+
                     <p:dataTable var="publicacion" value="#{beanPublicacion.mostrarMisPublicaciones(beanLogout.id)}" resizableColumns="true" style="margin-top: 160px" emptyMessage="Todavía no tienes publicaciones">
                         <p:column style="width:16px">style="font-weight:bold;font-size: 300%; color:#F5F6CE; font-family: Roboto;"
                             <p:rowToggler />
@@ -90,10 +91,16 @@
                         <p:column headerText="Autor">
                             <h:outputText value="#{publicacion.LAutor}" />
                         </p:column>
- 
+
                         <p:column headerText="Editorial">
                             <h:outputText value="#{publicacion.LEditorial}" />
                         </p:column>
+                        <p:column headerText="latitud">
+                            <h:outputText value="#{publicacion.LLatitud}" />
+                        </p:column> 
+                        <p:column headerText="longitud">
+                            <h:outputText value="#{publicacion.LLongitud}" />
+                        </p:column> 
                         <!--<p:column headerText="Actualizar">
                             <h:commandButton value="Actualizar" action="#{beanPublicacion.definirActividad(publicacion, true)}" />
                         </p:column>
@@ -101,24 +108,26 @@
                             <h:commandButton value="Eliminar" action="#{beanPublicacion.definirActividad(publicacion, false)}" />
                         </p:column>-->
                     </p:dataTable>
+                    <p:gmap center="36.890257,30.707417" zoom="13" type="HYBRID" style="width:100%;height:400px" model="#{beanPublicacion.mostrarMarcadores(beanLogout.id)}" />
+
                 </div>
             </h:form>
-                <h:form id="boton">
+            <h:form id="boton">
                 <h:commandButton action="#{beanIndex.INICIO()}" value="Regresar" style="background: #DF7401; border: outset; color: #424242;
-                                                                                    padding: 12px 20px;
-                                                                                    top: 200px;
-                                                                                    position: fixed;
-                                                                                    left:23px;
-                                                                                    width:250px;
-                                                                                    text-align: center;
-                                                                                    text-decoration: none;                                                                                    
-                                                                                    font-size: 16px;
-                                                                                    margin: 4px 2px;
-                                                                                    cursor: pointer;"/>
+                                 padding: 12px 20px;
+                                 top: 200px;
+                                 position: fixed;
+                                 left:23px;
+                                 width:250px;
+                                 text-align: center;
+                                 text-decoration: none;                                                                                    
+                                 font-size: 16px;
+                                 margin: 4px 2px;
+                                 cursor: pointer;"/>
             </h:form>
         </div>
         <div>
-             <img src="img/RTEC-1_1.jpg" width="15%" height="24%" style="top: 5px; position: fixed; left: 5px;opacity: 0.4; filter: alpha(opacity=40);"/>
+            <img src="img/RTEC-1_1.jpg" width="15%" height="24%" style="top: 5px; position: fixed; left: 5px;opacity: 0.4; filter: alpha(opacity=40);"/>
         </div>
     </h:body>
 </html>

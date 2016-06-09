@@ -7,15 +7,22 @@
     <h:head>
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+        <style type="text/css">
+            body {
+                background-color: #6E6E6E;
+                background-image:url("img/fondoC.jpg");
+            }
+        </style>
+
 
     </h:head>
-    
+
     <h:body>
         <img id="full-screen-background-image" alt="full-screen-background-image" src="img/fondoC.png"  />
         <div class="menu">
             <h:form>
                 <p:growl id="messages" showDetail="true" sticky="true"  />
-                <p><h:outputLabel value="Bienvenido " style="font-weight:bold;font-size: 250%; color:#F5F6CE; font-family: Roboto;"/>
+                <p><h:outputLabel id="bienvenido" value="Bienvenido"/>
                     <h:outputText value="#{beanLogout.usuario}" style="font-weight:bold;font-size: 250%; color:#F5F6CE; font-family: Roboto;"/>
                 </p>
                 <p:menubar style="background:#D8D8D8;border: outset; ">
@@ -34,15 +41,15 @@
                         <p:separator />
                         <p:menuitem value="Solicitudes aceptadas" action="#{beanIndex.SOLICITUDES_ACEPTADAS()}"/>
                     </p:submenu>
-                        <p:menuitem value="Cerrar Sesión" action="#{beanLogout.cerrarSesion()}" icon="ui-icon-extlink" />                       
+                    <p:menuitem value="Cerrar Sesión" action="#{beanLogout.cerrarSesion()}" icon="ui-icon-extlink" />                       
                 </p:menubar>
-                
+
 
             </h:form>
         </div>
-         <div>
-             <img id="logo-rtec" src="img/RTEC-1_1.jpg" width="15%" height="15%" style="top: 5px; position: relative; left: 5px;opacity: 0.4; filter: alpha(opacity=40);"/>
-         </div>
+        <div>
+            <img id="logo-rtec" src="img/RTEC-1_1.jpg" width="15%" height="15%"/>
+        </div>
     </h:body>
 </html>
 

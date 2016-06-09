@@ -76,6 +76,7 @@
         </style>
     </h:head>
     <h:body>
+        <script src = "http://maps.googleapis.com/maps/api/js?sensor=true|false" type="text/javascript"></script>
         <img id="full-screen-background-image" alt="full-screen-background-image" src="img/fondoC.png"  />
         <div class="form ">
 
@@ -97,6 +98,21 @@
                     <p:inputText value="#{beanPublicacion.evalCont}" placeholder="Evaluación de Contenido"/>
                     <h4>Evaluación de Redacción</h4>
                     <p:inputText value="#{beanPublicacion.evalRedac}" placeholder="Evaluación de Redacción"/>
+                    
+                    <h4>Latitud libro</h4>
+                    <h:inputText value="#{beanPublicacion.latitud}"/>
+                    <h4>Longitud libro</h4>
+                    <h:inputText value="#{beanPublicacion.longitud}"/>
+
+                    <h:outputText id="coo1" value="#{draggableMarkersView.marker.latlng.lat}" title="latitud" />
+                    <br/>
+                    <h:outputText id="coo2" value="#{draggableMarkersView.marker.latlng.lng}" title="longitud"/>
+                    <p:growl id="growl" showDetail="true" />
+
+                    <p:gmap id="gmap" center="36.890257,30.707417" zoom="13" type="HYBRID"  model="#{draggableMarkersView.draggableModel}" style="width:100%;height:400px">
+                        <p:ajax event="markerDrag" listener="#{draggableMarkersView.onMarkerDrag}" update="growl,coo1,coo2" />
+                    </p:gmap>
+                    
                 </div>
                 <div class="boton">
                     <h:commandButton action="#{beanPublicacion.guardarPublicacion()}" value="Publicar" styleClass="boton" style="background: #DF7401; border: outset; color: #424242;

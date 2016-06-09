@@ -1,54 +1,136 @@
- html, body {
-                height: 100%;
-                width: 100%;
-                padding: 0;
-                margin: 0;
-                background-color: #6E6E6E;
-                background-image:url("../img/fondoC.jpg");
-            }
 #pantalla-completa {
-                z-index: -999;
-                width: 100%;
-                height: auto;
-                position: fixed;
-                top: 0;
-                left: 0;
-            }
-            
+    z-index: -999;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
 .menu{
-                position: fixed;
-                left: 30%;
-                top: 5%;
-                color: white;
-                font-size: 25px;
-                z-index: 50;
-                background-image:url("../img/fondoC.jpg");
-            }
-            
+    position: fixed;
+    left: 30%;
+    top: 5%;
+    color: white;
+    font-size: 25px;
+    z-index: 50;
+    background-image:url("../img/fondoC.jpg");
+}
+
 p {
-            border-style: ridge; 
-            }
-            
-            
-#full-screen-background-image {
-                
-                width: 350%;
-                height: 350%;
-                top: 0px;
-                position: fixed;
-                left: 0px;
-                
-            }
-            
-            #logo-rtec {
-                
-                top: 5px; 
-                position: relative; 
-                left: 5px;
-                opacity: 0.4; 
-                filter: alpha(opacity=40);
-                border: 5px solid #ddd;
-                border-radius: 8px;
-                cursor: pointer;
-                transition: 0.3s;
-            }
+    border-style: ridge; 
+}
+
+
+#full-screen-background-image{
+    width: 350%;
+    height: 350%;
+    top: 0px;
+    position: fixed;
+    left: 0px;
+}
+
+#logo-rtec {
+    top: 5px; 
+    position: relative; 
+    left: 5px;
+    opacity: 0.4; 
+    filter: alpha(opacity=40);
+    border: 5px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/*css index.xhtml*/
+
+#titulo {
+
+    width: 24%;
+    height: auto;
+    top: 300px;
+    position: relative;
+    left: 10px;
+
+}
+.login-page {
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+.form {
+    position: relative;
+    z-index: 1;
+    background-image:url("../img/tooplate_main.png");
+    /*background-color:#FFFFFF ;*/
+    max-width: 400px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+
+}
+.form input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #FFFFFF;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.campos {
+    font-family: "Comic Sans MS", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    /*background-image:  url("tooplate_main.png");*/
+    /*background-color:#FFFFFF ;*/
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FA7A7A;
+    font-size: 15px;
+    -webkit-transition: all 0.3 ease;
+    cursor: pointer;
+}
+
+.ui-growl {
+    position:absolute;
+    top:50%;
+    left:39%;
+    z-index:9999;
+}
+.boton{
+    background: #DF7401; 
+    color:#424242;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/*
+#boton {
+    background-color: #4CAF50;
+    border: none;
+    color: #FA5858;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+*/
+
+#bienvenido{
+    font-weight: bold;
+    font-size: 250%; 
+    color:#F5F6CE; 
+    font-family: Roboto;
+}
