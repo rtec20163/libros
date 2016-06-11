@@ -78,32 +78,32 @@
                 <p:growl id="messages" showDetail="true" sticky="true"/>
                 <div class="campos">
                     <h4>Libro</h4>
-                    <p:inputText value="#{beanPublicacion.titulo}" placeholder="Nombre de Libro"/>
+                    <p:inputText value="#{beanPublicacion.libro.LTitulo}" placeholder="Nombre de Libro"/>
              
-                    <p:inputText value="#{beanPublicacion.autor}" placeholder="Autor"/>              
-                    <p:inputText value="#{beanPublicacion.editorial}" placeholder="Editorial"/>               
-                    <p:inputText value="#{beanPublicacion.isbn}" placeholder="Isbn"/>                   
-                    <p:inputText value="#{beanPublicacion.anho}" placeholder="Año"/>                 
-                    <p:inputText value="#{beanPublicacion.resenha}" placeholder="Reseña"/>                   
-                    <p:inputText value="#{beanPublicacion.palabrasClaves}" placeholder="Palabras clave"/>
+                    <p:inputText value="#{beanPublicacion.libro.LAutor}" placeholder="Autor"/>              
+                    <p:inputText value="#{beanPublicacion.libro.LEditorial}" placeholder="Editorial"/>               
+                    <p:inputText value="#{beanPublicacion.libro.LIsbn}" placeholder="Isbn"/>                   
+                    <p:inputText value="#{beanPublicacion.libro.LAnho}" placeholder="Año"/>                 
+                    <p:inputText value="#{beanPublicacion.libro.LResehna}" placeholder="Reseña"/>                   
+                    <p:inputText value="#{beanPublicacion.libro.LPablasClave}" placeholder="Palabras clave"/>
                     <h4>Edición</h4>
-                    <p:inputText value="#{beanPublicacion.edicion}" placeholder="Edición"/> 
+                    <p:inputText value="#{beanPublicacion.libro.NEdicion}" placeholder="Edición"/> 
                     <h4>Evaluación de Contenido</h4>
-                    <p:inputText value="#{beanPublicacion.evalCont}" placeholder="Evaluación de Contenido"/>
+                    <p:inputText value="#{beanPublicacion.libro.LEvalucionContenido}" placeholder="Evaluación de Contenido"/>
                     <h4>Evaluación de Redacción</h4>
-                    <p:inputText value="#{beanPublicacion.evalRedac}" placeholder="Evaluación de Redacción"/>
+                    <p:inputText value="#{beanPublicacion.libro.LEvaluacionRedaccion}" placeholder="Evaluación de Redacción"/>
                     
                     <h4>Latitud libro</h4>
-                    <h:inputText value="#{beanPublicacion.latitud}"/>
+                    <h:inputText value="#{beanPublicacion.libro.LLatitud}"/>
                     <h4>Longitud libro</h4>
-                    <h:inputText value="#{beanPublicacion.longitud}"/>
+                    <h:inputText value="#{beanPublicacion.libro.LLongitud}"/>
 
                     <h:outputText id="coo1" value="#{draggableMarkersView.marker.latlng.lat}" title="latitud" />
                     <br/>
                     <h:outputText id="coo2" value="#{draggableMarkersView.marker.latlng.lng}" title="longitud"/>
                     <p:growl id="growl" showDetail="true" />
 
-                    <p:gmap id="gmap" center="19.323799,-99.1807947" zoom="13" type="ROADMAP   "  model="#{draggableMarkersView.draggableModel}" style="width:100%;height:400px">
+                    <p:gmap id="gmap" center="19.323799,-99.1807947" zoom="13" type="ROADMAP   "  model="#{draggableMarkersView.editDraggable(beanPublicacion.libro.LLatitud, beanPublicacion.libro.LLongitud)}" style="width:100%;height:400px">
                         <p:ajax event="markerDrag" listener="#{draggableMarkersView.onMarkerDrag}" update="growl,coo1,coo2" />
                     </p:gmap>
                     
@@ -119,7 +119,7 @@
                                                                                                         cursor: pointer;"/>
                 </div>
                 <div>
-                    <h:commandButton action="#{beanIndex.INICIO}" value="Regresar" styleClass="boton" style="background: #DF7401; border: outset; color: #424242;
+                    <h:commandButton action="inicio.xhtml" value="Regresar" styleClass="boton" style="background: #DF7401; border: outset; color: #424242;
                                                                                     padding: 12px 20px;
                                                                                     top: 180px;
                                                                                     position: fixed;

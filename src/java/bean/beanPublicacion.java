@@ -222,6 +222,24 @@ public class beanPublicacion {
         }
         return "";
     }
+    
+    public String definirActividad(Libro libro,int id){
+        if(libro == null){
+            message = new FacesMessage(FacesMessage.SEVERITY_ERROR,"Libro invalido.", null);
+            faceContext.addMessage(null, message);
+            faceContext.getExternalContext().getFlash().setKeepMessages(true);
+            return beanIndex.VER_PUBLICACIONES;
+        }else{
+            httpServletRequest.getSession().setAttribute("sesionLibro", libro.getIdLibro());
+            definirActividad();
+            if(id == libro.getUsuario().getIdUsuario()){
+                this.libro = libro;
+                return beanIndex.DETALLES_MI_LIBRO;
+            }else{
+                return beanIndex.DETALLES_LIBRO;
+            }
+        }
+    }
 
     public Libro getActividad() {
         return libro;

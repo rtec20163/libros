@@ -22,6 +22,8 @@ public class beanIndex {
     public static final String VER_PUBLICACIONES = "verpublicaciones";
     public static final String MIS_SOLICITUDES = "missolicitudes";
     public static final String SOLICITUDES = "solicitudes";
+    public static final String DETALLES_LIBRO = "detalleslibro.xhtml";
+    public static final String DETALLES_MI_LIBRO = "EditarLibro.xhtml";
 
     public String MAPA() {
         return MAPA;

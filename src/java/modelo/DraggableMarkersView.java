@@ -45,6 +45,15 @@ public class DraggableMarkersView implements Serializable {
         return draggableModel;
     }
       
+    public MapModel editDraggable(Double lat, Double lng){
+        LatLng coord = new LatLng(lat, lng);
+        draggableModel.addOverlay(new Marker(coord));
+        for(Marker premarker : draggableModel.getMarkers()) {
+            premarker.setDraggable(true);
+        }
+        return draggableModel;
+    }
+    
     public void onMarkerDrag(MarkerDragEvent event) {
         marker = event.getMarker();
           
