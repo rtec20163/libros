@@ -121,4 +121,14 @@ public class LibroDao {
         }
         return resultado;
     }
+    
+    public List<Libro> obtenerPorAtributo(String atributo,String valor){
+        List<Libro> list = null;
+        try{
+            list = dao.buscarPorAtributo(atributo, valor);
+        }catch(Exception e){
+            throw e;
+        }
+        return list;
+    }
 }

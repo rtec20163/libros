@@ -51,7 +51,8 @@ public class beanPublicacion {
     private final HttpServletRequest httpServletRequest;
     private final FacesContext faceContext;
     private FacesMessage message;
-
+    private String valorBusqueda;
+    private List<Libro> listaBusqueda;
     private DraggableMarkersView draggableMarkersView;
 
     public beanPublicacion() {
@@ -141,13 +142,12 @@ public class beanPublicacion {
         return resultado;
     }
 
-    
     public MapModel mostrarMarcadores(int id) {
         MapModel marcadores = new DefaultMapModel();
         List<Libro> resultado;
         try {
             resultado = dao.obtenerPorUsuario(id);
-            for(Libro librotemp : resultado){
+            for (Libro librotemp : resultado) {
                 marcadores.addOverlay(new Marker(new LatLng(librotemp.getLLatitud(), librotemp.getLLongitud()), librotemp.getLTitulo()));
             }
         } catch (Exception e) {
@@ -161,7 +161,7 @@ public class beanPublicacion {
         List<Libro> resultado;
         try {
             resultado = dao.obtenerLista(idd);
-            for(Libro librotemp : resultado){
+            for (Libro librotemp : resultado) {
                 marcadores.addOverlay(new Marker(new LatLng(librotemp.getLLatitud(), librotemp.getLLongitud()), librotemp.getLTitulo()));
             }
         } catch (Exception e) {
@@ -169,8 +169,6 @@ public class beanPublicacion {
         }
         return marcadores;
     }
-
-    
     
     public List<Libro> mostrarPublicaciones(int id_usuario) {
         List<Libro> resultado;
@@ -180,6 +178,69 @@ public class beanPublicacion {
             resultado = new LinkedList<>();
         }
         return resultado;
+    }
+
+    public String mostrarTodasPublicaciones(int id_usuario) {
+        try {
+            listaBusqueda = dao.obtenerLista(id_usuario);
+        } catch (Exception e) {
+            listaBusqueda = new LinkedList<>();
+        }
+        return beanIndex.INICIO();
+    }
+
+    public String mostrarPorTitulo() {
+        try {
+            listaBusqueda = dao.obtenerPorAtributo("l_titulo", valorBusqueda);
+        } catch (Exception e) {
+            listaBusqueda = new LinkedList<>();
+        }
+        return beanIndex.INICIO();
+    }
+
+    public String mostrarPorEditorial() {
+        try {
+            listaBusqueda = dao.obtenerPorAtributo("l_editorial", valorBusqueda);
+        } catch (Exception e) {
+            listaBusqueda = new LinkedList<>();
+        }
+        return beanIndex.INICIO();
+    }
+
+    public String mostrarPorISBN() {
+        try {
+            listaBusqueda = dao.obtenerPorAtributo("l_isbn", valorBusqueda);
+        } catch (Exception e) {
+            listaBusqueda = new LinkedList<>();
+        }
+        return beanIndex.INICIO();
+    }
+
+    public String mostrarPorCRedaccion() {
+        try {
+            listaBusqueda = dao.obtenerPorAtributo("l_evaluacion_redaccion", valorBusqueda);
+        } catch (Exception e) {
+            listaBusqueda = new LinkedList<>();
+        }
+        return beanIndex.INICIO();
+    }
+
+    public String mostrarPorCContenido() {
+        try {
+            listaBusqueda = dao.obtenerPorAtributo("l_evalucion_contenido", valorBusqueda);
+        } catch (Exception e) {
+            listaBusqueda = new LinkedList<>();
+        }
+        return beanIndex.INICIO();
+    }
+
+    public String mostrarPorPReservadas() {
+        try {
+            listaBusqueda = dao.obtenerPorAtributo("l_pablas_clave", valorBusqueda);
+        } catch (Exception e) {
+            listaBusqueda = new LinkedList<>();
+        }
+        return beanIndex.INICIO();
     }
 
     private String checkCampos() {
@@ -222,20 +283,20 @@ public class beanPublicacion {
         }
         return "";
     }
-    
-    public String definirActividad(Libro libro,int id){
-        if(libro == null){
-            message = new FacesMessage(FacesMessage.SEVERITY_ERROR,"Libro invalido.", null);
+
+    public String definirActividad(Libro libro, int id) {
+        if (libro == null) {
+            message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Libro invalido.", null);
             faceContext.addMessage(null, message);
             faceContext.getExternalContext().getFlash().setKeepMessages(true);
             return beanIndex.VER_PUBLICACIONES;
-        }else{
+        } else {
             httpServletRequest.getSession().setAttribute("sesionLibro", libro.getIdLibro());
             definirActividad();
-            if(id == libro.getUsuario().getIdUsuario()){
+            if (id == libro.getUsuario().getIdUsuario()) {
                 this.libro = libro;
                 return beanIndex.DETALLES_MI_LIBRO;
-            }else{
+            } else {
                 return beanIndex.DETALLES_LIBRO;
             }
         }
@@ -395,6 +456,22 @@ public class beanPublicacion {
 
     public void setDraggableMarkersView(DraggableMarkersView draggableMarkersView) {
         this.draggableMarkersView = draggableMarkersView;
+    }
+
+    public String getValorBusqueda() {
+        return valorBusqueda;
+    }
+
+    public void setValorBusqueda(String valorBusqueda) {
+        this.valorBusqueda = valorBusqueda;
+    }
+
+    public List<Libro> getListaBusqueda() {
+        return listaBusqueda;
+    }
+
+    public void setListaBusqueda(List<Libro> listaBusqueda) {
+        this.listaBusqueda = listaBusqueda;
     }
 
 }

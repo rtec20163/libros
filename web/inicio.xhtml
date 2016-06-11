@@ -21,6 +21,19 @@
 
             <p:growl id="messages" showDetail="true" sticky="false" life="3000"  />
 
+
+            <p:inputText value="#{beanPublicacion.valorBusqueda}"/>
+
+            <h:outputText value="BUSQUEDA POR:" style="color:white;font-size: larger;"/>
+            <h:commandButton title="Titulo" value="Titulo" action="#{beanPublicacion.mostrarPorTitulo()}"/>
+            <h:commandButton title="Editorial" value="Editorial" action="#{beanPublicacion.mostrarPorEditorial()}"/>
+            <h:commandButton title="ISBN" value="ISBN" action="#{beanPublicacion.mostrarPorISBN()}"/>
+            <h:commandButton title="Calificacion de redaccion" value="Redaccion" action="#{beanPublicacion.mostrarPorCRedaccion()}"/>
+            <h:commandButton title="Calificacion de contenido" value="Contenido" action="#{beanPublicacion.mostrarPorCContenido()}"/>
+            <h:commandButton title="latitud" value="Latitud" action="#{beanPublicacion.mostrarPorPReservadas()}"/>
+            <h:commandButton title="Todas las publicaciones" value="Ver todo" action="#{beanPublicacion.mostrarTodasPublicaciones(beanLogout.id)}"/>
+
+
             <p:menubar style="background:#D8D8D8;border: outset; ">
 
                 <p:menuitem value="Publicar un libro" url="#{beanIndex.PUBLICAR()}" icon="ui-icon-right-open-1"/>
@@ -51,13 +64,12 @@
 
                 </div>
             </div>
-            <p:dataTable var="publicaciones" value="#{beanPublicacion.mostrarPublicaciones(beanLogout.id)}" resizableColumns="true" style="margin-top: 20px" emptyMessage="Todavía no hay actividades que mostrar">
+            <p:dataTable var="publicaciones" value="#{beanPublicacion.listaBusqueda}" resizableColumns="true" style="margin-top: 20px" emptyMessage="Todavía no hay actividades que mostrar">
                 <p:column headerText="Titulo">
                     <h:outputText value="#{publicaciones.LTitulo}" />
                 </p:column>
-
                 <p:column headerText="Autor">
-                    <h:outputText value="#{publicaciones.LAutor}" />
+                    <h:outputText value="#{publicaciones.LLatitud}" />
                 </p:column>
                 <p:column headerText="Editorial">
                     <h:outputText value="#{publicaciones.LEditorial}" />
@@ -76,7 +88,6 @@
                 </p:column>
 
             </p:dataTable>
-            <p:gmap center="19.323799,-99.1807947" zoom="13" type="ROADMAP" style="width:100%;height:400px" model="#{beanPublicacion.mostrarTodosMarcadores(beanLogout.id)}" />
 
 
         </h:form>        
